@@ -4,8 +4,8 @@ var total_col = 17; //total column number
 var board;
 var context;
 
-var snakeX = blockSize * 5;
-var snakeY = blockSize * 5;
+var snakeX = blockSize * 8;
+var snakeY = blockSize * 8;
 
 // Set the total number of rows and columns
 var speedX = 0; //speed of snake in x coordinate.
@@ -28,7 +28,7 @@ window.onload = function () {
 	placeFood();
 	document.addEventListener("keyup", changeDirection); //for movements
 	// Set snake speed
-	setInterval(update, 1000 / 10);
+	setInterval(update, 100);
 }
 
 function update() {
@@ -69,7 +69,6 @@ function update() {
 	if (snakeBody.length) {
 		snakeBody[0] = [snakeX, snakeY];
 	}
-
 	context.fillStyle = "black";
 	snakeX += speedX * blockSize; //updating Snake position in X coordinate.
 	snakeY += speedY * blockSize; //updating Snake position in Y coordinate.
