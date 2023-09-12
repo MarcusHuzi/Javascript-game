@@ -33,7 +33,19 @@ window.onload = function () {
 
 function update() {
 	if (gameOver) {
-		return;
+
+		snakeX = blockSize * 5;
+		snakeY = blockSize * 5;
+
+		speedX = 0; 
+		speedY = 0; 
+
+		snakeBody = [];
+
+		foodX;
+		foodY;
+
+		gameOver = false;
 	}
 
 	// Background of a Game
@@ -41,7 +53,7 @@ function update() {
 	context.fillRect(0, 0, board.width, board.height);
 
 	// Set food color and position
-	context.fillStyle = "yellow";
+	context.fillStyle = "red";
 	context.fillRect(foodX, foodY, blockSize, blockSize);
 
 	if (snakeX == foodX && snakeY == foodY) {
@@ -58,7 +70,7 @@ function update() {
 		snakeBody[0] = [snakeX, snakeY];
 	}
 
-	context.fillStyle = "white";
+	context.fillStyle = "black";
 	snakeX += speedX * blockSize; //updating Snake position in X coordinate.
 	snakeY += speedY * blockSize; //updating Snake position in Y coordinate.
 	context.fillRect(snakeX, snakeY, blockSize, blockSize);
